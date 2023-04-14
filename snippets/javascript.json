@@ -1,0 +1,23 @@
+{
+	"tera-proxy-hook": {
+		"prefix": "teraproxy-hook",
+		"body": [
+			"mod.dispatch.hook(\"$1\",(event)=>{",
+			"$2",
+			"})"
+		]
+	},
+	"tera-proxy-module": {
+		"prefix": "teraproxy-module",
+		"body": [
+			"module.exports = function $1(mod){",
+			"const {command} = dispatch.require;",
+			"let slogin;",
+			"mod.dispatch.hook(\"S_LOGIN\",(event)=>{",
+			"slogin = event",
+			"})",
+			"$2",
+			"}"
+		]
+	}
+}

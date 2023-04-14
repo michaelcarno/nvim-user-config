@@ -1,0 +1,32 @@
+{
+  "name": "my-snippets",
+  "engines": {
+    "vscode": "^1.11.0"
+  },
+  "contributes": {
+    "snippets": [
+      {
+        "language": "javascript",
+        "path": "javascript.json"
+      },
+      {
+        "language": "typescript",
+        "path": "typescript.json"
+      },
+      {
+        "language": [
+          "typescript",
+          "html"
+        ],
+        "path": "./angular/angular-html.json"
+      },
+      {
+        "language": [
+          "plaintex",
+          "tex"
+        ],
+        "path": "latex.json"
+      }
+    ]
+  }
+}
