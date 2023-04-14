@@ -65,9 +65,16 @@ return {
       -- buffer filepath. See :h 'stl' for details.
       selection_display = function(char) return char end,
     })
-    vim.keymap.set("n", "<leader>s", function()
-      local picked_window_id = require 'window-picker'.pick_window() or vim.api.nvim_get_current_win()
-      vim.api.nvim_set_current_win(picked_window_id)
-    end, { desc = "Pick a window" })
-  end
+  end,
+  keys = {
+    {
+      "<leader>s",
+      function()
+        local picked_window_id = require 'window-picker'.pick_window() or vim.api.nvim_get_current_win()
+        vim.api.nvim_set_current_win(picked_window_id)
+      end,
+      desc = "Pick a window"
+    }
+
+  }
 }

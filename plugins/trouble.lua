@@ -9,7 +9,8 @@ return {
         cancel = "<c-e>",
       }
     })
-
-    vim.keymap.set("n", "<leader>lt", "<cmd>TroubleToggle<cr>", { desc = "Show/Hide Trouble list" })
-  end
+  end,
+  keys = {
+    { "<leader>lt", "<cmd>TroubleToggle<cr>", desc = "Show/Hide Trouble list" }
+  }
 }
