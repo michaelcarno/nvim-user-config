@@ -55,7 +55,11 @@ return {
     performance = {
       rtp = {
         -- customize default disabled vim plugins
-        disabled_plugins = { "tohtml", "gzip", "matchit", "zipPlugin", "netrwPlugin", "tarPlugin", "matchparen" },
+        disabled_plugins = { "tohtml", "gzip", "matchit", "zipPlugin",
+          --  "netrwPlugin",
+          "tarPlugin",
+          "matchparen"
+        },
       },
     },
   },
@@ -70,7 +74,6 @@ return {
     local capabilities = vim.lsp.protocol.make_client_capabilities()
     capabilities.offsetEncoding = { "utf-16" }
     require("lspconfig").clangd.setup({ capabilities = capabilities })
-
     require("notify").setup({
       stages = 'static'
     })
