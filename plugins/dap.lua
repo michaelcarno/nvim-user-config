@@ -7,7 +7,7 @@ return {
       dependencies = { "nvim-dap" },
       cmd = { "DapInstall", "DapUninstall" },
       opts = { automatic_setup = true },
-      -- tag = "v2.0.1",
+      tag = "v2.0.1",
       config = require "plugins.configs.mason-nvim-dap",
     },
     {
