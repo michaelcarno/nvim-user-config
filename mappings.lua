@@ -21,6 +21,7 @@ return {
     -- version b4 fix
     -- ["<leader>lG"] = { "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", desc = "Search symbol globaly" },
     ["<leader>gn"] = { "<cmd>Gitsigns toggle_current_line_blame<cr>", desc = "Toggle current line blame for all lines" },
+    ["<leader>bC"] = { "<cmd>%bd|e#<cr>", desc = "Close all buffer" },
     -- ["<C-k>"]      = { function()
     --   require('lsp_signature').toggle_float_win()
     -- end, desc = "Toggle signature" },
