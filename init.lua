@@ -73,6 +73,7 @@ return {
     -- fixing clangd bug with notification spam
     local capabilities = vim.lsp.protocol.make_client_capabilities()
     capabilities.offsetEncoding = { "utf-16" }
+    require 'nvim-treesitter.install'.compilers = { "clang" }
     require("lspconfig").clangd.setup({ capabilities = capabilities })
     require("notify").setup({
       stages = 'static'
