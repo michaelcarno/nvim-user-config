@@ -3,7 +3,7 @@ return {
   event = "BufRead",
   config = function()
     require 'lightspeed'.setup {
-      ignore_case = false,
+      ignore_case = true,
       exit_after_idle_msecs = { unlabeled = nil, labeled = nil },
       --- s/x ---
       jump_to_unique_chars = { safety_timeout = 400 },
@@ -24,5 +24,18 @@ return {
       limit_ft_matches = 4,
       repeat_ft_with_target_char = false,
     }
-  end
+  end,
+  keys = {
+
+    {
+      "gs",
+      function() require 'lightspeed'.sx:go({ ['cross-window?'] = true }) end,
+      desc = "Lightspeed cross search forward"
+    },
+    {
+      "gS",
+      function() require 'lightspeed'.sx:go({ ['cross-window?'] = true, ['reverse?'] = true }) end,
+      desc = "Lightspeed cross search backward"
+    }
+  }
 }
