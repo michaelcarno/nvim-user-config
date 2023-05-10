@@ -74,6 +74,18 @@ return {
     local capabilities = vim.lsp.protocol.make_client_capabilities()
     capabilities.offsetEncoding = { "utf-16" }
     require 'nvim-treesitter.install'.compilers = { "clang" }
+    -- require('lspconfig').tsserver.setup {
+    --   -- init_options = {
+    --   --   preferences = {
+    --   --     disableSuggestions = true
+    --   --   }
+    --   -- },
+    --   filetypes = {
+    --     'typescript',
+    --     'typescriptreact',
+    --     'typescript.tsx',
+    --   },
+    -- }
     require("lspconfig").clangd.setup({ capabilities = capabilities })
     require("notify").setup({
       stages = 'static'

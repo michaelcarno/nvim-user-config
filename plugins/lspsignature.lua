@@ -7,7 +7,7 @@ return {
       log_path = vim.fn.stdpath("cache") .. "/lsp_signature.log", -- log dir when debug is on
       -- default is  ~/.cache/nvim/lsp_signature.log
       verbose = false,                                            -- show debug line number
-      bind = true,                                                -- This is mandatory, otherwise border config won't get registered.
+      bind = false,                                               -- This is mandatory, otherwise border config won't get registered.
       -- If you want to hook lspsaga or other signature handler, pls set to false
       doc_lines = 10,                                             -- will show two lines of comment/doc(if there are more than two lines in doc, will be truncated);
       -- set to 0 if you DO NOT want any API comments be shown
@@ -31,7 +31,7 @@ return {
       close_timeout = 4000,                         -- close floating window after ms when laster parameter is entered
       fix_pos = false,                              -- set to true, the floating window will not auto-close until finish all parameters
       hint_enable = true,                           -- virtual hint enable
-      hint_prefix = " ",                            -- Panda for parameter, NOTE: for the terminal not support emoji, might crash
+      hint_prefix = "ℹ️  ",                     -- Panda for parameter, NOTE: for the terminal not support emoji, might crash
       hint_scheme = "String",
       hi_parameter = "LspSignatureActiveParameter", -- how your parameter will be highlight
       handler_opts = {
@@ -50,5 +50,7 @@ return {
       select_signature_key = nil,                   -- cycle to next signature, e.g. '<M-n>' function overloading
       move_cursor_key = nil,                        -- imap, use nvim_set_current_win to move cursor between current win and floating
     })
-  end
+  end,
+  keys = {
+  }
 }

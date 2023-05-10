@@ -31,7 +31,7 @@ return {
   -- },
   {
     "tpope/vim-surround",
-    event = "BufRead",
+    event = "VeryLazy",
     config = function()
       -- require('vim-surround').setup({
       -- })

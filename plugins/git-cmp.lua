@@ -5,11 +5,12 @@ return {
     local format = require("cmp_git.format")
     local sort = require("cmp_git.sort")
 
+
     require("cmp_git").setup({
       -- defaults
       filetypes = { "gitcommit", "octo" },
       remotes = { "upstream", "origin" }, -- in order of most to least prioritized
-      enableRemoteUrlRewrites = false,  -- enable git url rewrites, see https://git-scm.com/docs/git-config#Documentation/git-config.txt-urlltbasegtinsteadOf
+      enableRemoteUrlRewrites = false,    -- enable git url rewrites, see https://git-scm.com/docs/git-config#Documentation/git-config.txt-urlltbasegtinsteadOf
       git = {
         commits = {
           limit = 100,
@@ -21,9 +22,9 @@ return {
         hosts = {}, -- list of private instances of github
         issues = {
           fields = { "title", "number", "body", "updatedAt", "state" },
-          filter = "all",   -- assigned, created, mentioned, subscribed, all, repos
+          filter = "all", -- assigned, created, mentioned, subscribed, all, repos
           limit = 100,
-          state = "open",   -- open, closed, all
+          state = "open", -- open, closed, all
           sort_by = sort.github.issues,
           format = format.github.issues,
         },
@@ -35,7 +36,7 @@ return {
         pull_requests = {
           fields = { "title", "number", "body", "updatedAt", "state" },
           limit = 100,
-          state = "open",   -- open, closed, merged, all
+          state = "open", -- open, closed, merged, all
           sort_by = sort.github.pull_requests,
           format = format.github.pull_requests,
         },
@@ -44,7 +45,7 @@ return {
         hosts = {}, -- list of private instances of gitlab
         issues = {
           limit = 100,
-          state = "opened",   -- opened, closed, all
+          state = "opened", -- opened, closed, all
           sort_by = sort.gitlab.issues,
           format = format.gitlab.issues,
         },
@@ -55,7 +56,7 @@ return {
         },
         merge_requests = {
           limit = 100,
-          state = "opened",   -- opened, closed, locked, merged
+          state = "opened", -- opened, closed, locked, merged
           sort_by = sort.gitlab.merge_requests,
           format = format.gitlab.merge_requests,
         },

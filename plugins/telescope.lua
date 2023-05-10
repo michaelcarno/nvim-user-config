@@ -7,6 +7,7 @@ return {
   opts = function()
     local actions = require "telescope.actions"
     local get_icon = require("astronvim.utils").get_icon
+    -- local fb_actions = require "telescope._extensions.file_browser.actions"
     return {
       defaults = {
         prompt_prefix = string.format("%s ", get_icon "Search"),
@@ -15,7 +16,7 @@ return {
         sorting_strategy = "ascending",
         layout_config = {
           horizontal = {
-            prompt_position = "top",
+            prompt_position = "bottom",
             preview_width = 0.55,
           },
           vertical = {
