@@ -1,6 +1,6 @@
 return {
   "petertriho/cmp-git",
-  event = "BufRead",
+  event = "VeryLazy",
   config = function()
     local format = require("cmp_git.format")
     local sort = require("cmp_git.sort")

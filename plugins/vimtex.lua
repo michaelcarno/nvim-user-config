@@ -1,6 +1,6 @@
 return {
   "lervag/vimtex",
-  event = "BufRead",
+  event = "VeryLazy",
   config = function()
   end
 }

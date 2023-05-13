@@ -1,6 +1,6 @@
 return {
   "lukas-reineke/indent-blankline.nvim",
-  event = "BufRead",
+  event = "VeryLazy",
   config = function()
     -- vim.opt.list = true
     -- vim.opt.listchars:append "space:⋅"
@@ -15,6 +15,7 @@ return {
     require("indent_blankline").setup {
       space_char_blankline = " ",
       show_current_context = true,
+      -- use_treesitter = false,
       -- show_current_context_start = true,
       -- char_highlight_list = {
       --   "IndentBlanklineIndent1",
@@ -25,5 +26,6 @@ return {
       --   "IndentBlanklineIndent6",
       -- },
     }
+    -- vim.g.indent_blankline_use_treesitter = true
   end
 }

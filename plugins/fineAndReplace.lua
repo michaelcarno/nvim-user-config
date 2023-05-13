@@ -1,6 +1,6 @@
 return {
   "brooth/far.vim",
-  event = "BufRead",
+  event = "VeryLazy",
   config = function()
 
   end

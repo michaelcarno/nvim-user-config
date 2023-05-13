@@ -1,6 +1,6 @@
 return {
   "vim-test/vim-test",
-  event = "BufRead",
+  event = "VeryLazy",
   config = function()
 
   end

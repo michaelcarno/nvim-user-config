@@ -5,7 +5,7 @@ return {
     'nvim-telescope/telescope.nvim',
     'kyazdani42/nvim-web-devicons',
   },
-  event = "BufRead",
+  event = "VeryLazy",
   config = function()
     require "octo".setup({
       default_remote = { "upstream", "origin" }, -- order to try remotes

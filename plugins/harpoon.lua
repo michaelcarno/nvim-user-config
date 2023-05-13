@@ -1,6 +1,6 @@
 return {
   "ThePrimeagen/harpoon",
-  event = "BufRead",
+  event = "VeryLazy",
   config = function()
   end,
   keys = {

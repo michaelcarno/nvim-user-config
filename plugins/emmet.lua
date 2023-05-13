@@ -1,6 +1,6 @@
 return {
   "mattn/emmet-vim",
-  event = "BufRead",
+  event = "VeryLazy",
   config = function()
 
   end

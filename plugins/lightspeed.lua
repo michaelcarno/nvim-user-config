@@ -1,6 +1,6 @@
 return {
   "ggandor/lightspeed.nvim",
-  event = "BufRead",
+  event = "VeryLazy",
   config = function()
     require 'lightspeed'.setup {
       ignore_case = true,

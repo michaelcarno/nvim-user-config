@@ -1,6 +1,6 @@
 return {
   "andrewferrier/debugprint.nvim",
-  event = "BufRead",
+  event = "VeryLazy",
   config = function()
     require('debugprint').setup({
       create_keymaps    = true,  -- Creates default keymappings - see above
@@ -13,7 +13,7 @@ return {
       --filetypes = {}
     })
 
-    vim.keymap.set("n", "<Leader>dp", function()
+    vim.keymap.set("n", "<Leader>Dp", function()
       -- Note: setting `expr=true` and returning the value are essential
       return require('debugprint').debugprint()
     end, {
@@ -23,9 +23,9 @@ return {
       -- Note: setting `expr=true` and returning the value are essential
       return require('debugprint').debugprint({ above = true })
     end, {
-      expr = true,
+      expr = true, desc = "Debug print"
     })
-    vim.keymap.set("n", "<Leader>dq", function()
+    vim.keymap.set("n", "<Leader>Dq", function()
       -- Note: setting `expr=true` and returning the value are essential
       return require('debugprint').debugprint({ variable = true })
     end, {
@@ -37,7 +37,7 @@ return {
     end, {
       expr = true,
     })
-    vim.keymap.set("n", "<Leader>do", function()
+    vim.keymap.set("n", "<Leader>Do", function()
       -- Note: setting `expr=true` and returning the value are essential
       -- It's also important to use motion = true for operator-pending motions
       return require('debugprint').debugprint({ motion = true })

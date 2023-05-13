@@ -16,6 +16,9 @@ return {
     -- this is useful for naming menus
     ["<leader>b"]  = { name = "Buffers" },
     ["<leader>h"]  = false, -- remove home screen hotkey
+    ["gh"]         = { "_", desc = "First symbols of current line" },
+    ["go"]         = { "$", desc = "Last symbol of line" },
+
     -- quick save
     -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
     -- version b4 fix

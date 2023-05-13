@@ -1,6 +1,6 @@
 return {
   "sindrets/diffview.nvim",
-  event = "BufRead",
+  event = "VeryLazy",
   config = function()
 
   end

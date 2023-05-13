@@ -1,6 +1,6 @@
 return {
   "xiyaowong/transparent.nvim",
-  event = "BufRead",
+  event = "VeryLazy",
   config = function()
     require("transparent").setup({
       groups = { -- table: default groups

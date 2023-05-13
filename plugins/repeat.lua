@@ -1,6 +1,6 @@
 return {
   "tpope/vim-repeat",
-  event = "BufRead",
+  event = "VeryLazy",
   config = function()
     -- repeat last complex command for plugins like surround
   end

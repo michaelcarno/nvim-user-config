@@ -1,6 +1,6 @@
 return {
   "folke/trouble.nvim",
-  event = "BufRead",
+  event = "VeryLazy",
   config = function()
     require("trouble").setup({
       use_diagnostic_signs = true,

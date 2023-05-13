@@ -4,12 +4,12 @@ return {
   -- "andweeb/presence.nvim",
   {
     "andymass/vim-matchup",
-    event = "BufRead",
+    event = "VeryLazy",
     config = function()
       -- vim.g.matchup_matchparen_IdleLimitTime=1000000offscreen = { method = "popup" }
     end
   },
-
+  --
   -- {
   --   "karb94/neoscroll.nvim",
   --   event = "BufRead",
@@ -39,7 +39,7 @@ return {
   },
   {
     'numToStr/Comment.nvim',
-    event = "BufRead",
+    event = "VeryLazy",
     config = function()
       require('Comment').setup()
     end

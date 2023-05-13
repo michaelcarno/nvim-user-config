@@ -1,6 +1,6 @@
 return {
   "themaxmarchuk/tailwindcss-colors.nvim",
-  event = "BufRead",
+  event = "VeryLazy",
   config = function()
     local nvim_lsp = require("lspconfig")
 
