@@ -18,7 +18,7 @@ return {
     ["<leader>h"]  = false, -- remove home screen hotkey
     ["gh"]         = { "_", desc = "First symbols of current line" },
     ["go"]         = { "$", desc = "Last symbol of line" },
-
+    ["<M-w>"]      = { "%", desc = "Go to close parent" },
     -- quick save
     -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
     -- version b4 fix
@@ -28,6 +28,9 @@ return {
     -- ["<C-k>"]      = { function()
     --   require('lsp_signature').toggle_float_win()
     -- end, desc = "Toggle signature" },
+  },
+  v = {
+    ["<M-w>"] = { "%", desc = "Go to close parent" },
   },
   t = {
     -- setting a mapping to false will disable it

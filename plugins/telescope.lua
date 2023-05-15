@@ -26,7 +26,7 @@ return {
           height = 0.90,
           preview_cutoff = 120,
         },
-        file_ignore_patterns = { ".git", "node_modules", "build", "tmp", ".angular", ".vscode" },
+        file_ignore_patterns = { ".git", ".angular" },
         mappings = {
           i = {
             ["<C-n>"] = actions.cycle_history_next,
