@@ -17,7 +17,7 @@ return {
         layout_config = {
           horizontal = {
             prompt_position = "bottom",
-            preview_width = 0.55,
+            preview_width = 0.6,
           },
           vertical = {
             mirror = false,

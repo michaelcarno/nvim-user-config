@@ -70,9 +70,15 @@ return {
 
   },
   polish = function()
-    -- fixing clangd bug with notification spam
-    local capabilities = vim.lsp.protocol.make_client_capabilities()
-    capabilities.offsetEncoding = { "utf-16" }
+    -- turn off semantic tokens (break hightlight in TS mb on other languges too)
+    -- mb should turn it on after fix
+    vim.api.nvim_create_autocmd("LspAttach", {
+      callback = function(args)
+        local client = vim.lsp.get_client_by_id(args.data.client_id)
+        client.server_capabilities.semanticTokensProvider = nil
+      end,
+    });
+
     require 'nvim-treesitter.install'.compilers = { "clang" }
     -- require('lspconfig').tsserver.setup {
     --   -- init_options = {
@@ -86,6 +92,10 @@ return {
     --     'typescript.tsx',
     --   },
     -- }
+    -- fixing clangd bug with notification spam
+    local capabilities = vim.lsp.protocol.make_client_capabilities()
+    capabilities.offsetEncoding = { "utf-16" }
+
     require("lspconfig").clangd.setup({ capabilities = capabilities })
     require("notify").setup({
       stages = 'static'
