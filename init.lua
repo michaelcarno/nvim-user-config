@@ -20,7 +20,7 @@ return {
   colorscheme = "astrodark",
   -- Diagnostics configuration (for vim.diagnostics.config({...})) when diagnostics are on
   diagnostics = {
-    virtual_text = false,
+    virtual_text = true,
     underline = true,
   },
   lsp = {
@@ -70,6 +70,15 @@ return {
 
   },
   polish = function()
+    -- REFACTOR or DELETE after  it will be fixed in 0.10 https://github.com/nvim-telescope/telescope.nvim/issues/2027
+    -- vim.api.nvim_create_autocmd("WinLeave", {
+    --   callback = function()
+    --     if vim.bo.ft == "TelescopePrompt" and vim.fn.mode() == "i" then
+    --       vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc>", true, false, true), "i", false)
+    --     end
+    --   end,
+    -- })
+    --
     -- turn off semantic tokens (break hightlight in TS mb on other languges too)
     -- mb should turn it on after fix
     vim.api.nvim_create_autocmd("LspAttach", {

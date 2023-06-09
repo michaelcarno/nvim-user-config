@@ -49,10 +49,17 @@ return {
         duplicates = {
           nvim_lsp = 1,
           luasnip = 1,
-          cmp_tabnine = 1,
+          -- cmp_tabnine = 1,
           buffer = 1,
           path = 1,
         },
+
+        performance = {
+          debounce = 110,
+          throttle = 100,
+          fetching_timeout = 500,
+        },
+
         confirm_opts = {
           behavior = cmp.ConfirmBehavior.Replace,
           select = false,

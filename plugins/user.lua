@@ -7,6 +7,7 @@ return {
     event = "VeryLazy",
     config = function()
       -- vim.g.matchup_matchparen_IdleLimitTime=1000000offscreen = { method = "popup" }
+      vim.g.matchup_matchparen_matchup_surround_enabled = 1
     end
   },
   --

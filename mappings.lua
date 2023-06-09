@@ -18,9 +18,10 @@ return {
     ["<leader>h"]  = false, -- remove home screen hotkey
     ["gh"]         = { "_", desc = "First symbols of current line" },
     ["go"]         = { "$", desc = "Last symbol of line" },
-    ["<M-w>"]      = { "%", desc = "Go to close parent" },
+    -- ["<M-w>"]      = { "g%", desc = "Go to close parent" },
     -- quick save
     -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
+    ["F2"]         = { ":w!<cr>", desc = "Save File" }, -- change description but the same command
     -- version b4 fix
     -- ["<leader>lG"] = { "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", desc = "Search symbol globaly" },
     ["<leader>gn"] = { "<cmd>Gitsigns toggle_current_line_blame<cr>", desc = "Toggle current line blame for all lines" },

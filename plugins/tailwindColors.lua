@@ -67,7 +67,7 @@ return {
     opts = {
       user_default_options = {
         names = true,
-
+        RRGGBB = true,
         tailwind = true,
 
       },

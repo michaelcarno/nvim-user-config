@@ -9,5 +9,7 @@ return {
   -- { import = "astrocommunity.pack.tailwindcss" },
   { import = "astrocommunity.editing-support.nvim-regexplainer" },
   { import = "astrocommunity.editing-support.treej" },
+  { import = "astrocommunity.git.octo-nvim" },
+  -- { import = "astrocommunity.color.vim-highlighter" },
   -- { import = "astrocommunity.bars-and-lines.smartcolumn-nvim" },
 }

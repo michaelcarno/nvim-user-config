@@ -17,13 +17,13 @@ return {
         layout_config = {
           horizontal = {
             prompt_position = "bottom",
-            preview_width = 0.6,
+            preview_width = 0.55,
           },
           vertical = {
             mirror = false,
           },
-          width = 0.90,
-          height = 0.90,
+          width = 0.95,
+          height = 0.95,
           preview_cutoff = 120,
         },
         file_ignore_patterns = { ".git", ".angular" },
