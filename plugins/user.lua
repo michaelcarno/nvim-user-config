@@ -2,6 +2,14 @@ return {
   -- You can also add new plugins here as well:
   -- Add plugins, the lazy syntax
   -- "andweeb/presence.nvim",
+
+
+  {
+    "michaelcarno/mctheme",
+    opts = { "mctheme" },
+    lazy = false,
+    priority = 1000,
+  },
   {
     "andymass/vim-matchup",
     event = "VeryLazy",
