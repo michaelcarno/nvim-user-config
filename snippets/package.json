@@ -22,6 +22,18 @@
       },
       {
         "language": [
+          "typescript"
+        ],
+        "path": "./angular/angular-ts.json"
+      },
+      {
+        "language": [
+          "docker"
+        ],
+        "path": "./angular/docker.json"
+      },
+      {
+        "language": [
           "plaintex",
           "tex"
         ],
