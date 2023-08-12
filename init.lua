@@ -82,6 +82,7 @@ return {
     --
     -- turn off semantic tokens (break hightlight in TS mb on other languges too)
     -- mb should turn it on after fix
+    vim.api.nvim_exec('language en_US', true)
     vim.api.nvim_create_autocmd("LspAttach", {
       callback = function(args)
         local client = vim.lsp.get_client_by_id(args.data.client_id)

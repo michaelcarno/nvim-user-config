@@ -16,6 +16,7 @@ return {
   { import = "astrocommunity.register.nvim-neoclip-lua" },
   { import = "astrocommunity.programming-language-support.rest-nvim" },
   { import = "astrocommunity.editing-support.yanky-nvim" },
+  { import = "astrocommunity.file-explorer.oil-nvim" },
   -- { import = "astrocommunity.scrolling.vim-smoothie" },
   -- { import = "astrocommunity.syntax.vim-sandwich" },
   -- { import = "astrocommunity.color.vim-highlighter" },
