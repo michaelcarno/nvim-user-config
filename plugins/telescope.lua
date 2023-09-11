@@ -24,7 +24,7 @@ return {
           },
           width = 0.95,
           height = 0.95,
-          preview_cutoff = 120,
+          preview_cutoff = 30,
         },
         file_ignore_patterns = { ".git", ".angular" },
         mappings = {

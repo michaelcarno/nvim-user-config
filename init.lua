@@ -82,6 +82,43 @@ return {
     --
     -- turn off semantic tokens (break hightlight in TS mb on other languges too)
     -- mb should turn it on after fix
+    vim.g.firenvim_config = {
+      globalSettings = { alt = "all" },
+      localSettings = {
+        [".*"] = {
+          cmdline  = "neovim",
+          content  = "text",
+          priority = 1,
+          selector = "",
+          takeover = "never"
+        }
+      }
+    }
+
+
+    if vim.g.started_by_firenvim == true then
+      -- vim.api.nvim_create_autocmd('UIEnter', {
+      --   pattern = "*",
+      --   cmd = "set guifont=JetBrainsMono NFP:h15"
+      -- })
+      vim.api.nvim_create_autocmd("UIEnter", {
+        callback = function()
+          vim.fn.timer_start(100, function()
+            vim.opt.lines = 15
+            vim.cmd('set guifont=JetBrainsMono:h15')
+          end)
+        end,
+      })
+      vim.api.nvim_create_autocmd({ 'BufEnter' }, {
+        pattern = "github.com_*.txt",
+        cmd = "set filetype=markdown"
+      })
+      -- vim.api.nvim_create_autocmd({ 'BufEnter' }, {
+      --   pattern = "*.txt",
+      --   cmd = "set filetype=html"
+      -- })
+    end
+
     vim.api.nvim_exec('language en_US', true)
     vim.api.nvim_create_autocmd("LspAttach", {
       callback = function(args)

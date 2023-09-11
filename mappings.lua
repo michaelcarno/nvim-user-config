@@ -26,6 +26,7 @@ return {
     -- ["<leader>lG"] = { "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", desc = "Search symbol globaly" },
     ["<leader>gn"] = { "<cmd>Gitsigns toggle_current_line_blame<cr>", desc = "Toggle current line blame for all lines" },
     ["<leader>bC"] = { "<cmd>%bd<cr>", desc = "Close all buffer" },
+    -- ["<leader>gm"] = { "<cmd>Himalaya bondarenkoma<cr>", desc = "Check email bondarenkoma" },
     -- ["<C-k>"]      = { function()
     --   require('lsp_signature').toggle_float_win()
     -- end, desc = "Toggle signature" },
