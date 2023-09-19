@@ -20,6 +20,7 @@ return {
   { import = "astrocommunity.editing-support.yanky-nvim" },
   { import = "astrocommunity.file-explorer.oil-nvim" },
   { import = "astrocommunity.syntax.vim-easy-align" },
+  { import = "astrocommunity.fuzzy-finder.telescope-zoxide" },
   -- { import = "astrocommunity.bars-and-lines.dropbar-nvim" },
   -- { import = "astrocommunity.project.nvim-spectre" },
   -- { import = "astrocommunity.utility.noice-nvim" },
