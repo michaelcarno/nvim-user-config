@@ -26,6 +26,15 @@ return {
     -- ["<leader>lG"] = { "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", desc = "Search symbol globaly" },
     ["<leader>gn"] = { "<cmd>Gitsigns toggle_current_line_blame<cr>", desc = "Toggle current line blame for all lines" },
     ["<leader>bC"] = { "<cmd>%bd<cr>", desc = "Close all buffer" },
+    ["<leader>ft"] = { "<cmd>Trouble<cr>", desc = "Find trouble" },
+    ["<leader>fT"] =
+    { function()
+      require(
+        "telescope.builtin"
+      ).colorscheme { enable_preview = true }
+    end, desc = "Find themes" },
+
+    ["<leader>R"]  = { "<Plug>RestNvim", desc = "Run RestRequest" },
     -- ["<leader>gm"] = { "<cmd>Himalaya bondarenkoma<cr>", desc = "Check email bondarenkoma" },
     -- ["<C-k>"]      = { function()
     --   require('lsp_signature').toggle_float_win()

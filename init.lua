@@ -25,6 +25,11 @@ return {
     underline = true,
   },
   lsp = {
+    -- setup_handlers = {
+    --   -- add custom handler
+    --   tsserver = function(_, opts) require("typescript-tools").setup { server = opts } end
+    -- },
+
     -- customize lsp formatting options
     formatting = {
       -- control auto formatting on save
@@ -68,6 +73,13 @@ return {
   -- augroups/autocommands and custom filetypes also this just pure lua so
   -- anything that doesn't fit in the normal config locations above can go here
   plugins = {
+    -- "pmizio/typescript-tools.nvim", -- add lsp plugin
+    -- {
+    --   "williamboman/mason-lspconfig.nvim",
+    --   opts = {
+    --     ensure_installed = { "tsserver" }, -- automatically install lsp
+    --   },
+    -- },
 
   },
   polish = function()
@@ -82,6 +94,18 @@ return {
     --
     -- turn off semantic tokens (break hightlight in TS mb on other languges too)
     -- mb should turn it on after fix
+    -- require('lspconfig').graphql.setup({
+    --   on_attach = function(client)
+    --     client.server_capabilities.workspaceSymbolProvider = false
+    --   end,
+    --   filetypes = {
+    --     "graphql",
+    --     "typescriptreact",
+    --     "typescript",
+    --     "javascript",
+    --     "javascriptreact"
+    --   }
+    -- })
     vim.g.firenvim_config = {
       globalSettings = { alt = "all" },
       localSettings = {
@@ -120,14 +144,15 @@ return {
     end
 
     vim.api.nvim_exec('language en_US', true)
-    vim.api.nvim_create_autocmd("LspAttach", {
-      callback = function(args)
-        local client = vim.lsp.get_client_by_id(args.data.client_id)
-        client.server_capabilities.semanticTokensProvider = nil
-      end,
-    });
+    -- vim.api.nvim_create_autocmd("LspAttach", {
+    --   callback = function(args)
+    --     local client = vim.lsp.get_client_by_id(args.data.client_id)
+    --     client.server_capabilities.semanticTokensProvider = nil
+    --   end,
+    -- });
 
     require 'nvim-treesitter.install'.compilers = { "clang" }
+    -- require('lspconfig').tsserver.setup({})
     -- require('lspconfig').tsserver.setup {
     --   -- init_options = {
     --   --   preferences = {
