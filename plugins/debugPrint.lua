@@ -12,32 +12,32 @@ return {
       -- print_tag = DEBUGPRINT,  -- The string inserted into each print statement, which can be used to uniquely identify statements inserted by debugprint.kkkkkk
       --filetypes = {}
     })
-
-    vim.keymap.set("n", "<Leader>Dp", function()
+    --
+    vim.keymap.set("n", "<Leader>dpp", function()
       -- Note: setting `expr=true` and returning the value are essential
       return require('debugprint').debugprint()
     end, {
       expr = true,
     })
-    vim.keymap.set("n", "<Leader>D", function()
+    vim.keymap.set("n", "<Leader>dpP", function()
       -- Note: setting `expr=true` and returning the value are essential
       return require('debugprint').debugprint({ above = true })
     end, {
       expr = true, desc = "Debug print"
     })
-    vim.keymap.set("n", "<Leader>Dq", function()
+    vim.keymap.set("n", "<Leader>dpq", function()
       -- Note: setting `expr=true` and returning the value are essential
       return require('debugprint').debugprint({ variable = true })
     end, {
       expr = true,
     })
-    vim.keymap.set("n", "<Leader>Dq", function()
+    vim.keymap.set("n", "<Leader>dpQ", function()
       -- Note: setting `expr=true` and returning the value are essential
       return require('debugprint').debugprint({ above = true, variable = true })
     end, {
       expr = true,
     })
-    vim.keymap.set("n", "<Leader>Do", function()
+    vim.keymap.set("n", "<Leader>dpo", function()
       -- Note: setting `expr=true` and returning the value are essential
       -- It's also important to use motion = true for operator-pending motions
       return require('debugprint').debugprint({ motion = true })
@@ -50,5 +50,36 @@ return {
       M.deleteprints(opts)
     end, {
       range = true })
-  end
+  end,
+
+  -- keys = {
+  --   {
+  --     "<leader>dpp",
+  --     require('debugprint').debugprint()
+  --     ,
+  --     desc = "Debug print"
+  --   },
+  --   {
+  --     "<leader>dpP",
+  --     require('debugprint').debugprint({ above = true })
+  --     ,
+  --     desc = "Debug print above"
+  --   },
+  --
+  --   { "<Leader>dpq", require('debugprint').debugprint({ variable = true }),               desc = "" },
+  --   { "<Leader>dpQ", require('debugprint').debugprint({ variable = true, above = true }), desc = "" },
+  --   { "<Leader>dpo", require('debugprint').debugprint({ motion = true }),                 desc =
+  --   "Operator pending motions" },
+  --   {
+  --     "<leader>dpd",
+  --     function(opts)
+  --       -- Note: you must set `range=true` and pass through opts for ranges to work
+  --       M.deleteprints(opts)
+  --     end,
+  --     desc = "Remove debug print"
+  --   },
+  --   -- {"","",desc=""},
+  --   -- {"","",desc=""},
+  --
+  -- }
 }

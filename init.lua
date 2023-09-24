@@ -106,6 +106,58 @@ return {
     --     "javascriptreact"
     --   }
     -- })
+    --
+    --
+    vim.cmd('set keymap=russian-jcukenwin')
+    vim.cmd('set iminsert=0')
+    vim.cmd('set imsearch=0')
+
+    require("notify").setup({
+      background_colour = "NotifyBackground",
+      fps = 1,
+      icons = {
+        DEBUG = "",
+        ERROR = "",
+        INFO = "",
+        TRACE = "✎",
+        WARN = ""
+      },
+      level = 2,
+      minimum_width = 50,
+      render = "default",
+      stages = "static",
+      timeout = 5000,
+      top_down = true,
+      max_width = nil,
+      max_height = nil,
+      on_open = nil,
+      on_close = nil
+    })
+    -- lsp_mappings.n["<leader>lG"][1] = function() require("telescope.builtin").lsp_dynamic_workspace_symbols() end
+    -- grep with args plugin
+    local telescope = require("telescope")
+    local lga_actions = require("telescope-live-grep-args.actions")
+
+    telescope.setup {
+      extensions = {
+        live_grep_args = {
+          auto_quoting = true, -- enable/disable auto-quoting
+          -- define mappings, e.g.
+          mappings = {         -- extend mappings
+            i = {
+              ["<C-k>"] = lga_actions.quote_prompt(),
+              ["<C-i>"] = lga_actions.quote_prompt({ postfix = " --iglob " }),
+            },
+          },
+          -- ... also accepts theme settings, for example:
+          -- theme = "dropdown", -- use dropdown theme
+          -- theme = { }, -- use own theme spec
+          -- layout_config = { mirror=true }, -- mirror preview pane
+        }
+      }
+    }
+
+
     vim.g.firenvim_config = {
       globalSettings = { alt = "all" },
       localSettings = {
@@ -125,6 +177,7 @@ return {
       --   pattern = "*",
       --   cmd = "set guifont=JetBrainsMono NFP:h15"
       -- })
+      vim.g.icons_enabled = false
       vim.api.nvim_create_autocmd("UIEnter", {
         callback = function()
           vim.fn.timer_start(100, function()
