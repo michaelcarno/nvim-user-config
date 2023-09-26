@@ -40,8 +40,10 @@ return {
           --   ignore_file_types = { "python", "vim", "lua" },
           -- }),
         },
-        running_animated =
-        { "⣾", "⣽", "⣻", "⢿", "⡿", "⣟", "⣯", "⣷" },
+        icons = {
+          running_animated =
+          { "⣾", "⣽", "⣻", "⢿", "⡿", "⣟", "⣯", "⣷" },
+        }
       });
 
       -- maps.n["<leader>T"] = { desc = "Tests" };
