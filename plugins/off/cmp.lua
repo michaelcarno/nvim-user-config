@@ -1,12 +1,19 @@
 return {
   {
     "L3MON4D3/LuaSnip",
+    build = vim.fn.has "win32" == 0
+        and "echo 'NOTE: jsregexp is optional, so not a big deal if it fails to build\n'; make install_jsregexp"
+        or nil,
     dependencies = { "rafamadriz/friendly-snippets" },
+    opts = {
+      history = true,
+      delete_check_events = "TextChanged",
+      region_check_events = "CursorMoved",
+    },
     config = require "plugins.configs.luasnip",
   },
   {
     "hrsh7th/nvim-cmp",
-    commit = "a9c701fa7e12e9257b3162000e5288a75d280c28", -- https://github.com/hrsh7th/nvim-cmp/issues/1382
     dependencies = {
       "saadparwaiz1/cmp_luasnip",
       "hrsh7th/cmp-buffer",
@@ -18,48 +25,43 @@ return {
       local cmp = require "cmp"
       local snip_status_ok, luasnip = pcall(require, "luasnip")
       local lspkind_status_ok, lspkind = pcall(require, "lspkind")
+      local utils = require "astronvim.utils"
       if not snip_status_ok then return end
       local border_opts = {
-        border = "single",
-        winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:Visual,Search:None",
+        border = "rounded",
+        winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None",
       }
 
       local function has_words_before()
-        local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+        local line, col = (unpack or table.unpack)(vim.api.nvim_win_get_cursor(0))
         return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match "%s" == nil
       end
 
       return {
         enabled = function()
-          if vim.api.nvim_get_option_value("buftype", { buf = 0 }) == "prompt" then return false end
+          local dap_prompt = utils.is_available "cmp-dap" -- add interoperability with cmp-dap
+              and vim.tbl_contains(
+                { "dap-repl", "dapui_watches", "dapui_hover" },
+                vim.api.nvim_get_option_value("filetype", { buf = 0 })
+              )
+          if vim.api.nvim_get_option_value("buftype", { buf = 0 }) == "prompt" and not dap_prompt then return false end
           return vim.g.cmp_enabled
         end,
         preselect = cmp.PreselectMode.None,
         formatting = {
           fields = { "kind", "abbr", "menu" },
-          format = lspkind_status_ok and lspkind.cmp_format(astronvim.lspkind) or nil,
+          format = lspkind_status_ok and lspkind.cmp_format(utils.plugin_opts "lspkind.nvim") or nil,
         },
         snippet = {
           expand = function(args) luasnip.lsp_expand(args.body) end,
         },
-        -- exprerimental = {
-        --   native_menu = false,
-        --   ghost_text = true,
-        -- },
         duplicates = {
           nvim_lsp = 1,
           luasnip = 1,
-          -- cmp_tabnine = 1,
+          cmp_tabnine = 1,
           buffer = 1,
           path = 1,
         },
-
-        performance = {
-          debounce = 110,
-          throttle = 100,
-          fetching_timeout = 500,
-        },
-
         confirm_opts = {
           behavior = cmp.ConfirmBehavior.Replace,
           select = false,
@@ -103,8 +105,8 @@ return {
           end, { "i", "s" }),
         },
         sources = cmp.config.sources {
+          { name = "codeium",  priority = 1200 },
           { name = "nvim_lsp", priority = 1000 },
-          { name = "git",      priority = 900 },
           { name = "luasnip",  priority = 750 },
           { name = "buffer",   priority = 500 },
           { name = "path",     priority = 250 },

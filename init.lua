@@ -108,6 +108,14 @@ return {
     -- })
     --
     --
+       vim.api.nvim_create_autocmd("UIEnter", {
+        callback = function()
+          vim.fn.timer_start(100, function()
+            vim.cmd('SessionManager load_session')
+          end)
+        end,
+      });
+
     vim.cmd('set keymap=russian-jcukenwin')
     vim.cmd('set iminsert=0')
     vim.cmd('set imsearch=0')

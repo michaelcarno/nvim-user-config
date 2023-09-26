@@ -1,4 +1,5 @@
 -- Mapping data with "desc" stored directly by vim.keymap.set().
+local utils = require "astronvim.utils"
 --
 -- Please use this mappings table to set keyboard mapping since this is the
 -- lower level configuration and more robust one. (which-key will
@@ -27,6 +28,7 @@ return {
     ["<leader>gn"] = { "<cmd>Gitsigns toggle_current_line_blame<cr>", desc = "Toggle current line blame for all lines" },
     ["<leader>bC"] = { "<cmd>%bd<cr>", desc = "Close all buffer" },
     ["<leader>ft"] = { "<cmd>Trouble<cr>", desc = "Find trouble" },
+    ["<leader>tm"] = { function() utils.toggle_term_cmd "btm" end, desc = "ToggleTerm btm" },
     ["<leader>fT"] =
     { function()
       require(

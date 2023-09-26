@@ -72,21 +72,35 @@ return {
     --     "45635" }
     -- }
     --
-    -- dap.adapters.node2 = {
-    --   type = "executable",
-    --   command = "node",
-    --   args = {
-    --     "C:\\Users\\michaelcarno\\AppData\\Local\\nvim-data\\mason\\packages\\node-debug2-adapter\\out\\src\\nodeDebug.js",
-    --     "45635" }
-    -- }
-    --
-    -- dap.adapters.node = {
-    --   type = "executable",
-    --   command = "node",
-    --   args = {
-    --     "C:\\Users\\michaelcarno\\AppData\\Local\\nvim-data\\mason\\packages\\js-debug-adapter\\out\\src\\vsDebugServer.js",
-    --     "45635" }
-    -- }
+    dap.adapters.node2 = {
+      type = "executable",
+      command = "node",
+      port = "${port}",
+      args = {
+        "C:\\Users\\michaelcarno\\AppData\\Local\\nvim-data\\mason\\packages\\node-debug2-adapter\\out\\src\\nodeDebug.js",
+        "${port}" }
+    }
+
+    dap.adapters.node = {
+      type = "executable",
+      command = "node",
+      port = "${port}",
+      args = {
+        "C:\\Users\\michaelcarno\\AppData\\Local\\nvim-data\\mason\\packages\\js-debug-adapter\\out\\src\\vsDebugServer.js",
+        "${port}" }
+    }
+    dap.adapters["pwa-node"] = {
+      type = "server",
+      host = "localhost",
+      port = "${port}",
+      executable = {
+        command = "node",
+        args = {
+          require("mason-registry").get_package("js-debug-adapter"):get_install_path()
+          .. "/js-debug/src/dapDebugServer.js", "${port}" }
+
+      }
+    }
     --
     dap.configurations.javascript = {
       {
