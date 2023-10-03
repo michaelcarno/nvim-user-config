@@ -36,6 +36,9 @@ return {
       ).colorscheme { enable_preview = true }
     end, desc = "Find themes" },
 
+    ["g<C-d>"]     = { "<C-w><C-]>", desc = "Go to definition in new window" },
+    ["<C-w>d"]     = { "<C-w><C-]>", desc = "Go to definition in new window" },
+    ["<C-w><C-d>"] = { "<C-w><C-]>", desc = "Go to definition in new window" },
     ["<leader>R"]  = { "<Plug>RestNvim", desc = "Run RestRequest" },
     -- ["<leader>gm"] = { "<cmd>Himalaya bondarenkoma<cr>", desc = "Check email bondarenkoma" },
     -- ["<C-k>"]      = { function()
@@ -50,4 +53,11 @@ return {
     -- ["<esc>"] = false,
     ["<C-[>"] = { "<C-\\><C-n>", desc = "Normal mode" }
   },
+  i = {
+
+    ["<M-j>"] = { "<Down>" },
+    ["<M-h>"] = { "<Left>" },
+    ["<M-l>"] = { "<Right>" },
+    ["<M-k>"] = { "<Up>" },
+  }
 }

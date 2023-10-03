@@ -50,12 +50,16 @@ return {
     end,
     keys = {
       { prefix,        desc = 'Tests' },
-      { prefix .. "r", "<cmd>Neotest run<CR>",                                          desc = 'Run nearest test' },
-      { prefix .. "s", "<cmd>Neotest stop<CR>",                                         desc = 'Stop test' },
-      { prefix .. "l", "<cmd>Neotest summary<CR>",                                      desc = 'Run toggle summary' },
-      { prefix .. "o", "<cmd>Neotest output<CR>",                                       desc = 'Show output' },
-      { prefix .. "p", "<cmd>Neotest output-panel<CR>",                                 desc = 'Show output panel' },
-      { prefix .. "f", "<cmd>Neotest run file<CR>",                                     desc = 'Run file' },
-      { prefix .. "d", function() require("neotest").run.run({ strategy = "dap" }) end, desc = 'Debug test file' },
+      { prefix .. "r", function() require("neotest").run.run() end,                        desc = 'Run nearest test' },
+      { prefix .. "s", "<cmd>Neotest stop<CR>",                                            desc = 'Stop test' },
+      { prefix .. "a", function() require("neotest").summary.toggle() end,                 desc = 'Run toggle summary' },
+      { prefix .. "o", function() require("neotest").output.open({ enter = true }) end,    desc = 'Show output' },
+      { prefix .. "p", function() require("neotest").output_panel.toggle() end,            desc = 'Show output panel' },
+      { prefix .. "f", function() require("neotest").run.run(vim.fn.expand("%")) end,      desc = 'Run file' },
+      { prefix .. "d", function() require("neotest").run.run({ strategy = "dap" }) end,    desc = 'Debug test file' },
+      { prefix .. "w", function() require("neotest").watch.toggle(vim.fn.expand("%")) end,
+                                                                                             desc =
+        'Test watch current file' },
+      { prefix .. "l", function() require("neotest").run.run_last() end,                   desc = "Run last test" }
     }
   } }
