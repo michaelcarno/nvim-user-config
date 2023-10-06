@@ -10,7 +10,7 @@ return {
     -- local fb_actions = require "telescope._extensions.file_browser.actions"
     return {
       defaults = {
-        prompt_prefix = string.format("%s ", get_icon "Search"),
+        -- prompt_prefix = string.format("%s ", get_icon "Search"),
         selection_caret = string.format("%s ", get_icon "Selected"),
         path_display = { "truncate" },
         sorting_strategy = "ascending",
@@ -26,7 +26,7 @@ return {
           height = 0.95,
           preview_cutoff = 30,
         },
-        file_ignore_patterns = { ".git", ".angular" },
+        file_ignore_patterns = { ".git" },
         mappings = {
           i = {
             ["<C-n>"] = actions.cycle_history_next,

@@ -1,5 +1,6 @@
 -- Mapping data with "desc" stored directly by vim.keymap.set().
 local utils = require "astronvim.utils"
+local present, cmp = pcall(require, "cmp")
 --
 -- Please use this mappings table to set keyboard mapping since this is the
 -- lower level configuration and more robust one. (which-key will
@@ -54,6 +55,11 @@ return {
     ["<C-[>"] = { "<C-\\><C-n>", desc = "Normal mode" }
   },
   i = {
+    -- ["<Tab>"] = cmp.mapping.confirm {
+    --   behavior = cmp.ConfirmBehavior.Insert,
+    --   select = true,
+    -- },
+
 
     ["<M-j>"] = { "<Down>" },
     ["<M-h>"] = { "<Left>" },

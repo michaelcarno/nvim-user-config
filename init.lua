@@ -81,6 +81,16 @@ return {
     --     ensure_installed = { "tsserver" }, -- automatically install lsp
     --   },
     -- },
+    --
+    -- cmp = function(opts)
+    --   local cmp = require "cmp"
+    --   -- modify the mapping part of the table
+    --   opts.mapping["<Tab>"] = cmp.mapping.confirm {
+    --     behavior = cmp.ConfirmBehavior.Insert,
+    --     select = true,
+    --   }
+    --   return opts
+    -- end
 
   },
   polish = function()
@@ -109,6 +119,9 @@ return {
     -- })
     --
     --
+    -- vim.opt.list = true
+    -- vim.opt.listchars:append "space:⋅"
+    -- vim.opt.listchars:append "eol:↴"
     local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
     parser_config.teraonline_definitions = {
       install_info = {
