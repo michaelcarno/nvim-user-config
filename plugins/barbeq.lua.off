@@ -7,6 +7,17 @@ return {
   },
   config = function()
     require("barbecue").setup({
+      attach_navic = true,
+      exclude_filetypes = { "netrw", "toggleterm", "help",
+        "startify",
+        "aerial",
+        "alpha",
+        "dashboard",
+        "lazy",
+        "neogitstatus",
+        "NvimTree",
+        "neo-tree",
+        "Trouble", },
       theme = {
         -- this highlight is used to override other highlights
         -- you can take advantage of its `bg` and set a background throughout your winbar

@@ -123,6 +123,7 @@ return {
     -- vim.opt.listchars:append "space:⋅"
     -- vim.opt.listchars:append "eol:↴"
     local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
+
     parser_config.teraonline_definitions = {
       install_info = {
         url = "D://pinki//backstep//treesitter-teradefinition", -- local path or git repo
@@ -142,10 +143,13 @@ return {
         end)
       end,
     });
-
+      vim.fn.timer_start(100, function()
+   
     vim.cmd('set keymap=russian-jcukenwin')
     vim.cmd('set iminsert=0')
     vim.cmd('set imsearch=0')
+    vim.cmd('set laststatus=1')
+    end)
 
     require("notify").setup({
       background_colour = "NotifyBackground",

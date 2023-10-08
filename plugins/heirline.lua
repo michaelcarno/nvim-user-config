@@ -42,6 +42,9 @@ return {
           update = "BufEnter",
         },
       },
+      -- { -- active winbar
+      --   -- status.component.breadcrumbs { hl = status.hl.get_attributes("winbar", true) },
+      -- },
       -- active winbar
       {
         -- show the path to the file relative to the working directory
@@ -56,12 +59,13 @@ return {
           update = "BufEnter",
         },
         -- show the breadcrumbs
-        -- status.component.breadcrumbs {
-        --   icon = { hl = true },
-        --   hl = status.hl.get_attributes("winbar", true),
-        --   prefix = true,
-        --   padding = { left = 0 },
-        -- },
+        status.component.breadcrumbs {
+          icon = { hl = true },
+          hl = status.hl.get_attributes("winbar", true),
+          prefix = true,
+          file_modified = true,
+          padding = { left = 0 },
+        },
       },
     }
 
