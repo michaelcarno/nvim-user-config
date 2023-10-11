@@ -144,7 +144,6 @@ return {
       end,
     });
       vim.fn.timer_start(100, function()
-   
     vim.cmd('set keymap=russian-jcukenwin')
     vim.cmd('set iminsert=0')
     vim.cmd('set imsearch=0')

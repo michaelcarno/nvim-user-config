@@ -57,6 +57,7 @@ return {
           format = lspkind.cmp_format({
             mode = "text",
             menu = ({
+              codeinum = "[Codeinum]",
               buffer = "[Buffer]",
               nvim_lsp = "[LSP]",
               luasnip = "[LuaSnip]",

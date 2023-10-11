@@ -14,6 +14,7 @@ return {
     foldlevelstart = 99,       -- start with all code unfolded
     foldcolumn = "0",          -- vim.fn.has "nvim-0.9" == 1 and "1" or nil, -- show foldcolumn in nvim 0.9
     fillchars = { eob = "~" }, -- disable `~` on nonexistent lines
+    cmdheight = 1,             -- hide command line unless needed
   },
   g = {
     highlighturl_enabled = false,                    -- highlight URLs by default
