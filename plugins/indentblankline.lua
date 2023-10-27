@@ -2,7 +2,7 @@ return {
   "lukas-reineke/indent-blankline.nvim",
   event = "VeryLazy",
   main = "ibl",
-   -- enabled=false,
+  enable = false,
   config = function()
     -- vim.opt.list = true
     -- vim.opt.listchars:append "space:⋅"
@@ -38,8 +38,8 @@ return {
     end)
 
     vim.g.rainbow_delimiters = { highlight = highlight }
-      require("ibl").setup {
-         enabled = false,
+    require("ibl").setup {
+      enabled = false,
       indent = { char = "▏" },
       exclude = {
         buftypes = {
@@ -66,16 +66,17 @@ return {
         highlight = highlight,
       },
     }
- hooks.register(
-     hooks.type.ACTIVE,
-     function(bufnr)
-       return vim.api.nvim_buf_line_count(bufnr) < 2000
-     end
-   )
+    hooks.register(
+      hooks.type.ACTIVE,
+      function(bufnr)
+        return vim.api.nvim_buf_line_count(bufnr) < 2000
+      end
+    )
 
 
     hooks.register(hooks.type.SCOPE_HIGHLIGHT, hooks.builtin.scope_highlight_from_extmark)
-  end, keys ={
+  end,
+  keys = {
     { "<leader>u;", "<cmd>IBLToggle<cr>", desc = "Toggle Indent Blankline" },
   }
 }

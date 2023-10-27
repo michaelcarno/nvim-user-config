@@ -1,0 +1,7 @@
+return {
+  "luckasRanarison/nvim-devdocs",
+  event = "VeryLazy",
+  config = function()
+    require("nvim-devdocs").setup()
+  end
+}

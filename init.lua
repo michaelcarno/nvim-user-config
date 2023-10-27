@@ -74,6 +74,22 @@ return {
   -- augroups/autocommands and custom filetypes also this just pure lua so
   -- anything that doesn't fit in the normal config locations above can go here
   plugins = {
+    {
+      "akinsho/toggleterm.nvim",
+      opts = {
+        float_opts = {
+          -- The border key is *almost* the same as 'nvim_open_win'
+          -- see :h nvim_open_win for details on borders however
+          -- the 'curved' border is a custom border type
+          -- not natively supported but implemented in this plugin.
+          width = 160,
+          height = 200,
+          -- winblend = 3,
+          -- zindex =,
+        },
+      }
+    }
+
     -- "pmizio/typescript-tools.nvim", -- add lsp plugin
     -- {
     --   "williamboman/mason-lspconfig.nvim",
@@ -143,11 +159,11 @@ return {
         end)
       end,
     });
-      vim.fn.timer_start(100, function()
-    vim.cmd('set keymap=russian-jcukenwin')
-    vim.cmd('set iminsert=0')
-    vim.cmd('set imsearch=0')
-    vim.cmd('set laststatus=1')
+    vim.fn.timer_start(100, function()
+      vim.cmd('set keymap=russian-jcukenwin')
+      vim.cmd('set iminsert=0')
+      vim.cmd('set imsearch=0')
+      vim.cmd('set laststatus=2')
     end)
 
     require("notify").setup({

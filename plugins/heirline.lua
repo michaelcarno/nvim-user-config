@@ -41,6 +41,13 @@ return {
           surround = false,
           update = "BufEnter",
         },
+        status.component.breadcrumbs {
+          icon = { hl = true },
+          hl = status.hl.get_attributes("winbar", true),
+          prefix = true,
+          file_modified = true,
+          padding = { left = 0 },
+        },
       },
       -- { -- active winbar
       --   -- status.component.breadcrumbs { hl = status.hl.get_attributes("winbar", true) },

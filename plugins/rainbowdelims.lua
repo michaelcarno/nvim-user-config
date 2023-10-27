@@ -2,7 +2,7 @@ return {
   "HiPhish/rainbow-delimiters.nvim",
   event = "BufRead",
   config = function(_, opts)
-    require "rainbow-delimiters.setup" (opts)
+    -- require "rainbow-delimiters.setup" (opts)
     local rainbow_delimiters = require 'rainbow-delimiters'
 
     vim.g.rainbow_delimiters = {
