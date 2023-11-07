@@ -50,7 +50,11 @@ return {
     ["<C-S-Down>"]  = { function() require("smart-splits").resize_down() end, desc = "Resize split down" },
 
     ["<C-S-Left>"]  = { function() require("smart-splits").resize_left() end, desc = "Resize split left" },
-    ["<C-S-Right>"] = { function() require("smart-splits").resize_right() end, desc = "Resize split right" }
+    ["<C-S-Right>"] = { function() require("smart-splits").resize_right() end, desc = "Resize split right" },
+    ["f;"]          = { "<cmd>Telescope command_history<CR>", desc = "Telescoper command history" },
+    ["fq"]          = { "<cmd>Telescope search_history<CR>", desc = "Telescoper search history" },
+    ["fj"]          = { "<cmd>Telescope jumplist<CR>", desc = "Telescoper jumplist" },
+    ["<leader>fh"]  = { "<cmd>Telescope harpoon marks<CR>", desc = "Telescoper harpoon marks" }
   },
   v = {
     ["<M-w>"] = { "%", desc = "Go to close parent" },

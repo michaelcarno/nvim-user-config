@@ -73,22 +73,21 @@ return {
   -- This function is run last and is a good place to configuring
   -- augroups/autocommands and custom filetypes also this just pure lua so
   -- anything that doesn't fit in the normal config locations above can go here
-  plugins = {
-    {
-      "akinsho/toggleterm.nvim",
-      opts = {
-        float_opts = {
-          -- The border key is *almost* the same as 'nvim_open_win'
-          -- see :h nvim_open_win for details on borders however
-          -- the 'curved' border is a custom border type
-          -- not natively supported but implemented in this plugin.
-          width = 160,
-          height = 200,
-          -- winblend = 3,
-          -- zindex =,
-        },
-      }
+  plugins = { {
+    "akinsho/toggleterm.nvim",
+    opts = {
+      float_opts = {
+        -- The border key is *almost* the same as 'nvim_open_win'
+        -- see :h nvim_open_win for details on borders however
+        -- the 'curved' border is a custom border type
+        -- not natively supported but implemented in this plugin.
+        width = 160,
+        height = 200,
+        -- winblend = 3,
+        -- zindex =,
+      },
     }
+  }
 
     -- "pmizio/typescript-tools.nvim", -- add lsp plugin
     -- {
@@ -210,7 +209,6 @@ return {
         }
       }
     }
-
 
     vim.g.firenvim_config = {
       globalSettings = { alt = "all" },

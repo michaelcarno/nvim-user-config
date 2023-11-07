@@ -6,7 +6,7 @@ return {
   end,
   keys = {
     {
-      "<leader>fs",
+      "fs",
       "<cmd>Telescope file_browser path=%:p:h select_buffer=true<CR>",
       desc = "Open file browser in current folder"
     }

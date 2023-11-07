@@ -39,11 +39,10 @@ return {
   --   end
   -- },
   {
-    "tpope/vim-surround",
+    "kylechui/nvim-surround",
     event = "VeryLazy",
     config = function()
-      -- require('vim-surround').setup({
-      -- })
+      require('nvim-surround').setup()
     end
   },
   {

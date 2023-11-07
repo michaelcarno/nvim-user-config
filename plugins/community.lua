@@ -18,7 +18,7 @@ return {
   { import = "astrocommunity.register.nvim-neoclip-lua" },
   { import = "astrocommunity.programming-language-support.rest-nvim" },
   -- { import = "astrocommunity.editing-support.yanky-nvim" },
-  { import = "astrocommunity.file-explorer.oil-nvim" },
+  -- { import = "astrocommunity.file-explorer.oil-nvim" },
   { import = "astrocommunity.syntax.vim-easy-align" },
   { import = "astrocommunity.fuzzy-finder.telescope-zoxide" },
   -- { import = "astrocommunity.editing-support.nvim-regexplainer" },
