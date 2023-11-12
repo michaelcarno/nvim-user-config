@@ -33,6 +33,7 @@ return {
   -- { import = "astrocommunity.bars-and-lines.lualine-nvim" },
   { import = "astrocommunity.utility.telescope-live-grep-args-nvim" },
   { import = "astrocommunity.utility.nvim-toggler" },
+  { import = "astrocommunity.lsp.garbage-day-nvim" },
   -- { import = "astrocommunity.editing-support.rainbow-delimiters-nvim" },
   -- { import = "astrocommunity." },
   -- { import = "astrocommunity." },

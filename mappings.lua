@@ -31,11 +31,14 @@ return {
     ["<leader>ft"]  = { "<cmd>Trouble<cr>", desc = "Find trouble" },
     ["<leader>tm"]  = { function() utils.toggle_term_cmd "btm" end, desc = "ToggleTerm btm" },
     ["<leader>fT"]  =
-    { function()
-      require(
-        "telescope.builtin"
-      ).colorscheme { enable_preview = true }
-    end, desc = "Find themes" },
+    {
+      function()
+        require(
+          "telescope.builtin"
+        ).colorscheme { enable_preview = true }
+      end,
+      desc = "Find themes"
+    },
 
     ["g<C-d>"]      = { "<C-w><C-]>", desc = "Go to definition in new window" },
     ["<C-w>d"]      = { "<C-w><C-]>", desc = "Go to definition in new window" },
@@ -54,7 +57,13 @@ return {
     ["f;"]          = { "<cmd>Telescope command_history<CR>", desc = "Telescoper command history" },
     ["fq"]          = { "<cmd>Telescope search_history<CR>", desc = "Telescoper search history" },
     ["fj"]          = { "<cmd>Telescope jumplist<CR>", desc = "Telescoper jumplist" },
-    ["<leader>fh"]  = { "<cmd>Telescope harpoon marks<CR>", desc = "Telescoper harpoon marks" }
+    ["<leader>fh"]  = { "<cmd>Telescope harpoon marks<CR>", desc = "Telescoper harpoon marks" },
+    ["ff"]          = { function() require("telescope.builtin").find_files { hidden = true, no_ignore = false } end, desc = "Telescoper find files" },
+    ["fg"]          = { "<cmd>Telescope live_grep_args<CR>", desc = "Telescoper find with grep" },
+    ["fF"]          = {
+      function() require("telescope.builtin").find_files { hidden = true, no_ignore = true } end,
+      desc = "Find all files",
+    }
   },
   v = {
     ["<M-w>"] = { "%", desc = "Go to close parent" },

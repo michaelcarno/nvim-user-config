@@ -1,0 +1,126 @@
+{
+	"@if": {
+		"prefix": "@if",
+		"body": [
+			"@if ($1) {",
+			" $0",
+			"}"
+		],
+		"description": "Angulars v17+ @if control flow"
+	},
+  "@for": {
+    "prefix": "@for",
+    "body": [
+      "@for ($1 of $2; track $1.${3:id}) {",
+      "  $0",
+      "}"
+    ],
+    "description": "Angulars v17+ @for control flow"
+  },
+	"@elseif": {
+		"prefix": "@ifelse",
+		"body": [
+			"@if ($1) {",
+			" $2",
+			"} @else {",
+			" $3",
+			"}"
+		],
+		"description": "Angulars v17+ @if control flow"
+	},
+	"@else": {
+		"prefix": "@else",
+		"body": [
+			"@else {",
+			" $0",
+			"}"
+		],
+		"description": "Angulars v17+ @if control flow"
+	},
+	"@switch": {
+		"prefix": "@switch",
+		"body": [
+			"@switch ($1) {",
+			"  @case ($2) {",
+			"    $3",
+			"  }",
+			"  @default {",
+			"    $4",
+			"  }",
+			"}"
+		],
+		"description": "Angulars v17+ @switch control flow"
+	},
+	"@case": {
+		"prefix": "@case",
+		"body": [
+			"@case ($1) {",
+			"  $2",
+			"}"
+		],
+		"description": "Angulars v17+ @switch control flow"
+	},
+	"@default": {
+		"prefix":"@sdefault",
+		"body": [
+			"@default {",
+			"  $2",
+			"}"
+		],
+		"description": "Angulars v17+ @switch control flow"
+	},
+	"@defer": {
+		"prefix": "@deferon",
+		"body": [
+			"@defer (on ${1|immediate,interaction(),viewport(),hover(),timer()|}) {",
+			"  $0",
+			"}"
+		],
+		"description": "Angulars v17+ @defer control flow"
+	},
+	"@defer immediate": {
+		"prefix": "@immediate",
+		"body": [
+			"@defer (on immediate) {",
+			"  $0",
+			"}"
+		],
+		"description": "Angulars v17+ @defer control flow"
+	},
+	"@defer interaction": {
+		"prefix": "@interaction",
+		"body": [
+			"@defer (on interaction($1)) {",
+			"  $0",
+			"}"
+		],
+		"description": "Angulars v17+ @defer control flow"
+	},
+	"@defer viewport": {
+		"prefix": "@viewport",
+		"body": [
+			"@defer (on viewport($1)) {",
+			"  $0",
+			"}"
+		],
+		"description": "Angulars v17+ @defer control flow"
+	},
+	"@defer hover": {
+		"prefix": "@hover", 
+		"body": [
+			"@defer (on hover($1)) {",
+			"  $0",
+			"}"
+		],
+		"description": "Angulars v17+ @defer control flow"
+	},
+	"@defer timer": {
+		"prefix": "@timer",
+		"body": [
+			"@defer (on timer($1)) {",
+			"  $0",
+			"}"
+		],
+		"description": "Angulars v17+ @defer control flow"
+	}
+}

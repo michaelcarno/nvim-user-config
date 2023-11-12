@@ -31,6 +31,13 @@
       },
       {
         "language": [
+          "typescript",
+          "html"
+        ],
+        "path": "./angular/angular-17-template-syntax.json"
+      },
+      {
+        "language": [
           "docker"
         ],
         "path": "./angular/docker.json"
