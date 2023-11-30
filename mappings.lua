@@ -63,15 +63,20 @@ return {
     ["fF"]          = {
       function() require("telescope.builtin").find_files { hidden = true, no_ignore = true } end,
       desc = "Find all files",
-    }
+    },
+    ["fb"]          = {
+      function() require("telescope.builtin").buffers { hidden = true, no_ignore = true } end,
+      desc = "Find buffers",
+    },
+    ["<M-w>"]       = { "%", desc = "Go to close parent" },
   },
   v = {
     ["<M-w>"] = { "%", desc = "Go to close parent" },
   },
   t = {
     -- setting a mapping to false will disable it
-    -- ["<esc>"] = false,
-    ["<C-[>"] = { "<C-\\><C-n>", desc = "Normal mode" }
+    ["<Esc>"] = { "<Esc>" },
+    ["<C-s>"] = { "<C-\\><C-n>", desc = "Normal mode" }
   },
   i = {
     -- ["<Tab>"] = cmp.mapping.confirm {
@@ -80,6 +85,7 @@ return {
     -- },
 
 
+    ["<C-s>"] = { "<c-c><c-s>" },
     ["<C-l>"] = { function() require('luasnip').jump(1) end },
     ["<C-j>"] = { function() require('luasnip').jump(-1) end },
 
