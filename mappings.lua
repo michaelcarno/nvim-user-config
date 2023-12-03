@@ -76,7 +76,7 @@ return {
   t = {
     -- setting a mapping to false will disable it
     ["<Esc>"] = { "<Esc>" },
-    ["<C-s>"] = { "<C-\\><C-n>", desc = "Normal mode" }
+    ["<C-s>"] = { "<C-\\><C-n>", desc = "Normal mode" },
   },
   i = {
     -- ["<Tab>"] = cmp.mapping.confirm {

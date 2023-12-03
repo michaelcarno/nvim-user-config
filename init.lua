@@ -151,13 +151,15 @@ return {
       filetype = "def",                                         -- if filetype does not match the parser name
     }
 
-    vim.api.nvim_create_autocmd("UIEnter", {
-      callback = function()
-        vim.fn.timer_start(100, function()
-          vim.cmd('SessionManager load_session')
-        end)
-      end,
-    });
+    if next(vim.fn.argv()) == nil then
+      vim.api.nvim_create_autocmd("UIEnter", {
+        callback = function()
+          vim.fn.timer_start(100, function()
+            vim.cmd('SessionManager load_session')
+          end)
+        end,
+      });
+    end
     vim.fn.timer_start(100, function()
       vim.cmd('set keymap=russian-jcukenwin')
       vim.cmd('set iminsert=0')
