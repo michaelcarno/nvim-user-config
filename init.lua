@@ -28,10 +28,18 @@ return {
     -- setup_handlers = {
     --   -- add custom handler
     --   tsserver = function(_, opts) require("typescript-tools").setup { server = opts } end
+      -- ngserver = function(_,opts) require()end
     -- },
 
     -- customize lsp formatting options
     formatting = {
+
+      -- filter = function(client)
+      --   if vim.bo.filetype == "angular" then
+      --       return client.name == "null-ls"
+      -- end
+      -- return true
+      -- end,
       -- control auto formatting on save
       format_on_save = {
         enabled = true,     -- enable or disable format on save globally
@@ -55,6 +63,13 @@ return {
     servers = {
       -- "pyright"
     },
+    config = {
+      angularls = {
+        -- filetypes = {"angular"}
+        filetypes = {"angular","typescript", "html",
+          "typescriptreact" ,"typescript.tsx"}
+      }
+    }
   },
   -- Configure require("lazy").setup() options
   lazy = {
@@ -137,6 +152,14 @@ return {
     -- vim.opt.list = true
     -- vim.opt.listchars:append "space:⋅"
     -- vim.opt.listchars:append "eol:↴"
+vim.api.nvim_create_autocmd("BufEnter", {
+        callback = function()
+          vim.fn.timer_start(100, function()
+            vim.cmd('set title')
+            vim.cmd('set titlestring=%F')
+          end)
+        end,
+      })
     local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
 
     parser_config.teraonline_definitions = {
@@ -149,6 +172,21 @@ return {
         requires_generate_from_grammar = false,                 -- if folder contains pre-generated src/parser.c
       },
       filetype = "def",                                         -- if filetype does not match the parser name
+    }
+    --
+    -- также надо добавить filetype.vim с содержимым 
+    -- autocmd BufRead,BufEnter *.component.html set filetype=angular
+    -- C:\Users\michaelcarno\AppData\Local\nvim-data\lazy\nvim-treesitter-angular\ftdetect
+    parser_config.angular2 = {
+      install_info = {
+        url = "D:\\angular17tree\\tree-sitter-angular", -- local path or git repo
+        files = { "src/parser.c", "src/scanner.c" },                             -- note that some parsers also require src/scanner.c or src/scanner.cc
+        -- optional entries:
+        branch = "feature/control-flows",                                        -- default branch in case of git repo if different from master
+        generate_requires_npm = false,                          -- if stand-alone parser without npm dependencies
+        requires_generate_from_grammar = true,                 -- if folder contains pre-generated src/parser.c
+      }
+
     }
 
     if next(vim.fn.argv()) == nil then
@@ -259,6 +297,7 @@ return {
     -- });
 
     require 'nvim-treesitter.install'.compilers = { "clang" }
+    -- require 'nvim-treesitter.install'.compilers = { "clang" }
     -- require('lspconfig').tsserver.setup({})
     -- require('lspconfig').tsserver.setup {
     --   -- init_options = {
