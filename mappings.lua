@@ -26,10 +26,10 @@ return {
     ["F2"]          = { ":w!<cr>", desc = "Save File" }, -- change description but the same command
     -- version b4 fix
     -- ["<leader>lG"] = { "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", desc = "Search symbol globaly" },
-    ["<leader>gn"]  = { "<cmd>Gitsigns toggle_current_line_blame<cr>", desc = "Toggle current line blame for all lines" },
+    ["<leader>gm"]  = { "<cmd>Gitsigns toggle_current_line_blame<cr>", desc = "Toggle current line blame for all lines" },
     ["<leader>bC"]  = { "<cmd>%bd<cr>", desc = "Close all buffer" },
     ["<leader>ft"]  = { "<cmd>Trouble<cr>", desc = "Find trouble" },
-    ["<leader>tm"]  = { function() utils.toggle_term_cmd "btm" end, desc = "ToggleTerm btm" },
+    ["<leader>tm"]  = { function() utils.toggle_term_cmd "btm --enable_gpu_memory" end, desc = "ToggleTerm btm" },
     ["<leader>fT"]  =
     {
       function()

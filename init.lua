@@ -51,7 +51,8 @@ return {
         },
       },
       disabled = { -- disable formatting capabilities for the listed language servers
-        "html"     -- eslint do it better that html-lsp (it doesnt read editorconfig)
+        "html" ,    -- eslint do it better that html-lsp (it doesnt read editorconfig)
+        "tsserver"
         -- "sumneko_lua",
       },
       timeout_ms = 3000, -- default format timeout
