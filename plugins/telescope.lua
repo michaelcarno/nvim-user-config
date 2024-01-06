@@ -8,11 +8,33 @@ return {
     local actions = require "telescope.actions"
     local get_icon = require("astronvim.utils").get_icon
     -- local fb_actions = require "telescope._extensions.file_browser.actions"
+    -- lvim.builtin.telescope.defaults={
+  -- use fd to "find files" and return absolute paths
+	-- find_command = { "fd", "-t=f", "-a" },
+	    -- path_display = { "absolute" },
+        -- wrap_results = true
+-- }
     return {
+      pickers = {
+        current_buffer_tags = { fname_width = 100,path_display = {"absolute"} },
+        jumplist = { fname_width = 100,path_display = {"absolute"} },
+        loclist = { fname_width = 100,path_display = {"absolute"} },
+        lsp_definitions = { fname_width = 100,path_display = {"absolute"} },
+        lsp_document_symbols = { fname_width = 100,path_display = {"absolute"} },
+        lsp_dynamic_workspace_symbols = { fname_width = 100,path_display = {"absolute"} },
+        lsp_implementations = { fname_width = 100,path_display = {"absolute"} },
+        lsp_incoming_calls = { fname_width = 100,path_display = {"absolute"} },
+        lsp_outgoing_calls = { fname_width = 100,path_display = {"absolute"} },
+        lsp_references = {fname_width = 100,path_display = {"absolute"}},
+        lsp_type_definitions = { fname_width = 100,path_display = {"absolute"} },
+        lsp_workspace_symbols = { fname_width = 100,path_display = {"absolute"} },
+        quickfix = { fname_width = 100,path_display = {"absolute"} },
+        tags = { fname_width = 100,path_display = {"absolute"} },
+      },
       defaults = {
         -- prompt_prefix = string.format("%s ", get_icon "Search"),
         selection_caret = string.format("%s ", get_icon "Selected"),
-        path_display = { truncate = 2},
+        path_display = { truncate = 150},
         sorting_strategy = "ascending",
         layout_strategy = "vertical",
         winblend=0,
@@ -28,7 +50,7 @@ return {
           },
           width = 0.95,
           height = 0.95,
-          preview_cutoff = 50,
+          -- preview_cutoff = 50,
         },
         file_ignore_patterns = { ".git" },
         mappings = {
