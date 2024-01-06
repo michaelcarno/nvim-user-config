@@ -24,12 +24,12 @@ return {
         "StatusLine",
         "WinBar",
         "WinBarNC",
-        "TelescopePreviewLine",
-        "TelescopeNormal",
-        "TelescopePromptNormal",
-        "TelescopePreviewNormal",
-        "TelescopeNormal",
-        "TelescopeResultsNormal",
+        -- "TelescopePreviewLine",
+        -- "TelescopeNormal",
+        -- "TelescopePromptNormal",
+        -- "TelescopePreviewNormal",
+        -- "TelescopeNormal",
+        -- "TelescopeResultsNormal",
       },
       extra_groups = {},   -- table: additional groups that should be cleared
       exclude_groups = {}, -- table: groups you don't want to clear

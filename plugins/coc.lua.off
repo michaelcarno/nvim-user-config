@@ -1,0 +1,7 @@
+return {
+  "neoclide/coc.nvim",
+  event = "VeryLazy",
+  config = function()
+
+  end
+}

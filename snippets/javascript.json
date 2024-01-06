@@ -2,18 +2,24 @@
 	"tera-proxy-hook": {
 		"prefix": "teraproxy-hook",
 		"body": [
-			"mod.dispatch.hook(\"$1\",(event)=>{",
-			"$2",
+			"mod.hook(\"$1\",$2,(event)=>{",
+			"$3",
 			"})"
 		]
 	},
 	"tera-proxy-module": {
 		"prefix": "teraproxy-module",
 		"body": [
+			"const fs = require('fs')",
+			"const path = require('path') ",
+			"",
 			"module.exports = function $1(mod){",
 			"const {command} = dispatch.require;",
 			"let slogin;",
-			"mod.dispatch.hook(\"S_LOGIN\",(event)=>{",
+			"mod.command('WRITE_COMMAND',(args)=>{",
+			"",
+			"})",
+			"mod.hook(\"S_LOGIN\",14,(event)=>{",
 			"slogin = event",
 			"})",
 			"$2",

@@ -52,7 +52,7 @@ return {
       },
       disabled = { -- disable formatting capabilities for the listed language servers
         "html" ,    -- eslint do it better that html-lsp (it doesnt read editorconfig)
-        "tsserver"
+        -- "tsserver"
         -- "sumneko_lua",
       },
       timeout_ms = 3000, -- default format timeout
@@ -320,7 +320,46 @@ vim.api.nvim_create_autocmd("BufEnter", {
     require("notify").setup({
       stages = 'static'
     })
-    -- lsp_mappings.n["<leader>lG"][1] = function() require("telescope.builtin").lsp_dynamic_workspace_symbols() end
+   vim.g.dotnet_build_project = function()
+    local default_path = vim.fn.getcwd() .. '/'
+    if vim.g['dotnet_last_proj_path'] ~= nil then
+        default_path = vim.g['dotnet_last_proj_path']
+    end
+    -- local path = vim.fn.input('Path to your *proj file', default_path, 'file')
+    -- vim.g['dotnet_last_proj_path'] = path
+    local msbuildPatch ="\"D:/Program Files/Microsoft Visual Studio/2022/Enterprise/MSBuild/Current/Bin/msbuild.exe\""
+    -- local cmd = 'dotnet build -c Debug ' .. path .. ' > /dev/null'
+    local solution = vim.fn.input('Name solution file: ')
+    local cmd =msbuildPatch.." "..solution..".sln  /p:Configuration=Debug /l:FileLogger,Microsoft.Build.Engine;logfile=Manual_MSBuild_DebugVersion_LOG.log"
+    print('')
+    print('Cmd to execute: ' .. cmd)
+    local f = os.execute(cmd)
+    if f == 0 then
+        print('\nBuild: ✔️ ')
+    else
+        print('\nBuild: ❌ (code: ' .. f .. ')')
+    end
+end
+
+vim.g.dotnet_get_dll_path = function()
+    local request = function()
+        if vim.g['dotnet_last_dll_path'] ~= nim then
+          return  vim.fn.input('Path to dll ', vim.g['dotnet_last_dll_path'] )
+        end
+
+        return vim.fn.input('Path to dll ', vim.fn.getcwd() .. '/bin/Debug/net8-windows/win-x64/', 'file')
+    end
+
+    if vim.g['dotnet_last_dll_path'] == nil then
+        vim.g['dotnet_last_dll_path'] = request()
+    else
+        if vim.fn.confirm('Do you want to change the path to dll?\n' .. vim.g['dotnet_last_dll_path'], '&yes\n&no', 2) == 1 then
+            vim.g['dotnet_last_dll_path'] = request()
+        end
+    end
+
+    return vim.g['dotnet_last_dll_path']
+end -- lsp_mappings.n["<leader>lG"][1] = function() require("telescope.builtin").lsp_dynamic_workspace_symbols() end
 
     -- vim.keymap.set("n", "<leader>lG", "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
     --   { desc = "Search global symbol" })

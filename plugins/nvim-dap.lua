@@ -101,6 +101,34 @@ return {
 
       }
     }
+
+    dap.adapters.coreclr = {
+      type = "executable",
+      command = "C:/Users/michaelcarno/AppData/Local/nvim-data/mason/packages/netcoredbg/netcoredbg/netcoredbg.exe",
+      args = {"--interpreter=vscode"},
+
+    }
+
+    dap.configurations.cs = {
+      {
+        type = "coreclr",
+        name = "launch - netcoredbg",
+        request = "launch",
+    program = function()
+           -- if vim.fn.confirm('Should I recompile first?', '&yes\n&no', 2) == 1 then
+           --        vim.g.dotnet_build_project()
+           --    end
+                  return vim.g.dotnet_get_dll_path()
+      -- return vim.fn.input('Path to SolutionName dll ', vim.fn.getcwd() .. '/DamageMeter.UI/bin/Debug/net8-windows/win-x64/ShinraMeter.dll', 'file')
+    end,
+      },
+        {
+        type = "coreclr",
+        name = "attach - netcoredbg",
+        request = "attach",
+        processId = require('dap.utils').pick_process,
+      },
+    }
     --
     dap.configurations.javascript = {
       {

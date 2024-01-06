@@ -12,19 +12,23 @@ return {
       defaults = {
         -- prompt_prefix = string.format("%s ", get_icon "Search"),
         selection_caret = string.format("%s ", get_icon "Selected"),
-        path_display = { "truncate" },
+        path_display = { truncate = 2},
         sorting_strategy = "ascending",
+        layout_strategy = "vertical",
+        winblend=0,
         layout_config = {
           horizontal = {
             prompt_position = "bottom",
-            preview_width = 0.50,
+            preview_width = 0.80,
           },
           vertical = {
             mirror = false,
+            prompt_position = "bottom",
+            preview_width = 0.80,
           },
           width = 0.95,
-          height = 0.80,
-          preview_cutoff = 30,
+          height = 0.95,
+          preview_cutoff = 50,
         },
         file_ignore_patterns = { ".git" },
         mappings = {
