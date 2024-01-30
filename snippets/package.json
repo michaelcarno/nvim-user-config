@@ -48,6 +48,18 @@
           "tex"
         ],
         "path": "latex.json"
+      },
+      {
+        "language": [
+          "python"
+        ],
+        "path": "./python/main.json"
+      },
+      {
+        "language": [
+          "python"
+        ],
+        "path": "./python/pyqt.json"
       }
     ]
   }

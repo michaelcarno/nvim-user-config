@@ -174,22 +174,44 @@ vim.api.nvim_create_autocmd("BufEnter", {
       },
       filetype = "def",                                         -- if filetype does not match the parser name
     }
+    -- automatic set file type to angular with filename mask
+    vim.cmd([[
+    autocmd BufRead,BufEnter *.component.html set filetype=angular
+    ]])
     --
     -- также надо добавить filetype.vim с содержимым 
     -- autocmd BufRead,BufEnter *.component.html set filetype=angular
     -- C:\Users\michaelcarno\AppData\Local\nvim-data\lazy\nvim-treesitter-angular\ftdetect
-    parser_config.angular2 = {
-      install_info = {
-        url = "D:\\angular17tree\\tree-sitter-angular", -- local path or git repo
-        files = { "src/parser.c", "src/scanner.c" },                             -- note that some parsers also require src/scanner.c or src/scanner.cc
-        -- optional entries:
-        branch = "feature/control-flows",                                        -- default branch in case of git repo if different from master
-        generate_requires_npm = false,                          -- if stand-alone parser without npm dependencies
-        requires_generate_from_grammar = true,                 -- if folder contains pre-generated src/parser.c
-      }
-
-    }
-
+    --
+    -- parser_config.angular2 = {
+    --   install_info = {
+    --     url = "D:\\angular17tree\\tree-sitter-angular", -- local path or git repo
+    --     files = { "src/parser.c", "src/scanner.c" },                             -- note that some parsers also require src/scanner.c or src/scanner.cc
+    --     -- optional entries:
+    --     branch = "feature/control-flows",                                        -- default branch in case of git repo if different from master
+    --     generate_requires_npm = false,                          -- if stand-alone parser without npm dependencies
+    --     requires_generate_from_grammar = true,                 -- if folder contains pre-generated src/parser.c
+    --   }
+    --
+    -- }
+    --
+    -- чтобы поменять стандартный репозиторий на свой но надо править lockfile 
+    --
+    --   parsers.get_parser_configs().angular = {
+    --       install_info = {
+    --             url = "https://github.com/steelsojka/tree-sitter-angular",
+    --                   files = { "src/parser.c" },
+    --                         branch = "main"
+    --                             },
+    --                                 maintainers = {"@steelsojka"}
+    --                                   }
+    --
+    --                                     if not parsers.has_parser("angular") then
+    --                                         installer.update("angular")
+    --                                           end
+    --                                           end
+    --
+    --
     if next(vim.fn.argv()) == nil then
       vim.api.nvim_create_autocmd("UIEnter", {
         callback = function()

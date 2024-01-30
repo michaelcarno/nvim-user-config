@@ -10,7 +10,7 @@ return {
   -- { import = "astrocommunity.editing-support.nvim-regexplainer" },
   { import = "astrocommunity.editing-support.treesj" },
   -- { import = "astrocommunity.editing-support.ultimate-autopair-nvim" },
-  { import = "astrocommunity.git.octo-nvim" },
+  -- { import = "astrocommunity.git.octo-nvim" },
   { import = "astrocommunity.git.neogit" },
   { import = "astrocommunity.motion.mini-ai" },
   { import = "astrocommunity.motion.mini-move" },

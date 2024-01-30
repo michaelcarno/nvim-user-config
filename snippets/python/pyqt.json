@@ -1,0 +1,17 @@
+{
+  "New horizontal button with label": {
+    "prefix": "hlayoutbuttonlabel",
+    "body": [
+      "$0Widget = QWidget()",
+      "$0Layout = QHBoxLayout()",
+      "$0Widget.setLayout($0Layout)",
+      "self.$0Edit = QLineEdit()",
+      "self.$0Edit.setText('')",
+      "$0Label = QLabel(\"\")",
+      "$0Layout.addWidget($0Label)",
+      "$0Layout.addWidget(self.$0Edit)",
+      "sideBarlayout.addWidget($0Widget)"
+    ],
+    "description": "Create horizontal layout wiht button and label"
+  }
+}

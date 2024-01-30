@@ -2,7 +2,7 @@ return {
   "lukas-reineke/indent-blankline.nvim",
   event = "VeryLazy",
   main = "ibl",
-  enable = false,
+  enabled = false,
   config = function()
     -- vim.opt.list = true
     -- vim.opt.listchars:append "space:⋅"
