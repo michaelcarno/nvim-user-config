@@ -8,7 +8,7 @@ return {
   -- { import = "astrocommunity.completion.copilot-lua-cmp" },
   -- { import = "astrocommunity.pack.tailwindcss" },
   -- { import = "astrocommunity.editing-support.nvim-regexplainer" },
-  { import = "astrocommunity.editing-support.treesj" },
+  -- { import = "astrocommunity.editing-support.treesj" },
   -- { import = "astrocommunity.editing-support.ultimate-autopair-nvim" },
   -- { import = "astrocommunity.git.octo-nvim" },
   { import = "astrocommunity.git.neogit" },

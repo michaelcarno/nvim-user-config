@@ -153,6 +153,23 @@ return {
     -- vim.opt.list = true
     -- vim.opt.listchars:append "space:⋅"
     -- vim.opt.listchars:append "eol:↴"
+
+    if next(vim.fn.argv()) == nil then
+      vim.api.nvim_create_autocmd("UIEnter", {
+        callback = function()
+          vim.fn.timer_start(100, function()
+            vim.cmd('SessionManager load_session')
+          end)
+        end,
+      });
+    end
+    vim.fn.timer_start(100, function()
+      vim.cmd('set keymap=russian-jcukenwin')
+      vim.cmd('set iminsert=0')
+      vim.cmd('set imsearch=0')
+      vim.cmd('set laststatus=2')
+    end)
+
 vim.api.nvim_create_autocmd("BufEnter", {
         callback = function()
           vim.fn.timer_start(100, function()
@@ -174,7 +191,7 @@ vim.api.nvim_create_autocmd("BufEnter", {
       },
       filetype = "def",                                         -- if filetype does not match the parser name
     }
-    -- automatic set file type to angular with filename mask
+    
     vim.cmd([[
     autocmd BufRead,BufEnter *.component.html set filetype=angular
     ]])
@@ -212,21 +229,6 @@ vim.api.nvim_create_autocmd("BufEnter", {
     --                                           end
     --
     --
-    if next(vim.fn.argv()) == nil then
-      vim.api.nvim_create_autocmd("UIEnter", {
-        callback = function()
-          vim.fn.timer_start(100, function()
-            vim.cmd('SessionManager load_session')
-          end)
-        end,
-      });
-    end
-    vim.fn.timer_start(100, function()
-      vim.cmd('set keymap=russian-jcukenwin')
-      vim.cmd('set iminsert=0')
-      vim.cmd('set imsearch=0')
-      vim.cmd('set laststatus=2')
-    end)
 
     require("notify").setup({
       background_colour = "NotifyBackground",
@@ -251,6 +253,7 @@ vim.api.nvim_create_autocmd("BufEnter", {
     })
     -- lsp_mappings.n["<leader>lG"][1] = function() require("telescope.builtin").lsp_dynamic_workspace_symbols() end
     -- grep with args plugin
+    
     local telescope = require("telescope")
     local lga_actions = require("telescope-live-grep-args.actions")
 

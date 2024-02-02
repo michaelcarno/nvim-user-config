@@ -73,6 +73,7 @@ return {
     ["gR"]       = { "<cmd>Glance references<cr>", desc = "go to references" },
     ["gY"]       = { "<cmd>Glance type_definitions<cr>", desc = "go to type definitions" },
     ["gM"]       = { "<cmd>Glance implementations<cr>", desc = "go to implementations" },
+    ["<C-q>"] = false
   },
   v = {
     ["<M-w>"] = { "%", desc = "Go to close parent" },

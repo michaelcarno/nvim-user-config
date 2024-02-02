@@ -2,7 +2,7 @@ return {
   "nvim-treesitter/nvim-treesitter-textobjects",
   after = "nvim-treesitter",
   requires = "nvim-treesitter/nvim-treesitter",
-
+  enabled=true,
   event = "BufRead",
   config = function()
     require 'nvim-treesitter.configs'.setup {
