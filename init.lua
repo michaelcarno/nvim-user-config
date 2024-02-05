@@ -65,6 +65,13 @@ return {
       -- "pyright"
     },
     config = {
+    cssmodules_ls = {
+      filetypes = {"angular","html"}
+       },
+      tailwindcss= {
+        -- filetypes = {"angular"}
+        filetypes = {"angular"}
+      },
       angularls = {
         -- filetypes = {"angular"}
         filetypes = {"angular","typescript", "html",

@@ -20,6 +20,9 @@ return {
         "typescript",
         "typescriptreact",
         "yaml",
+        "lua",
+        "xml",
+        "xmlx",
       },
     })
   end

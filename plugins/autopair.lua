@@ -1,12 +1,20 @@
-return {
+return {{
  'windwp/nvim-autopairs',
  enabled=true,
     event = "InsertEnter",
+    -- opts = function ()
+    --   local map_cr = true
+    --   local map_bs = true  -- map the <BS> key
+    --   local map_c_h = true  -- Map the <C-h> key to delete a pair
+    --   local map_c_w = true -- map <c-w> to delete a pair if possible
+    --   
+    -- end,
   config = function()
 -- put this to setup function and press <a-e> to use fast_wrap
 local npairs = require("nvim-autopairs")
 local Rule = require('nvim-autopairs.rule')
 local cond = require('nvim-autopairs.conds')
+
 npairs.setup({
     -- check_ts = true,
     -- ts_config = {
@@ -15,16 +23,20 @@ npairs.setup({
     --     java = false,-- don't check treesitter on java
     --  }
     -- change default fast_wrap
+    map_c_w = true,
+    check_ts = false,
+    map_c_h = true,
            fast_wrap = {
                map = '<M-e>',
                chars = { '{', '[', '(', '"', "'" },
                pattern = [=[[%'%"%>%]%)%}%,]]=],
-               end_key = '$',
+               end_key = '\'',
+               -- check_ts= true,
                before_key = 'h',
                after_key = 'l',
                cursor_pos_before = true,
                keys = 'qwertyuiopzxcvbnmasdfghjkl',
-               manual_position = true,
+               manual_position = false,
                highlight = 'Search',
                highlight_grey='Comment'
              },
@@ -42,7 +54,7 @@ npairs.add_rules({
 
   -- Rule('%(.*%)%s*%=>$', ' {  }', { 'typescript', 'typescriptreact', 'javascript' })
   --       :use_regex(true),
-  --       :set_end_pair_length(2),
+        -- :set_end_pair_length(2),
 })
 
 local brackets = { { '(', ')' }, { '[', ']' }, { '{', '}' } }
@@ -86,4 +98,31 @@ for _, bracket in pairs(brackets) do
   }
 end
   end
+},
+
+  {
+    "jiangmiao/auto-pairs",
+    enabled=false,
+    event="VeryLazy",
+    config = function()
+
+    end
+
+  },
+
+
+  {
+    "windwp/nvim-ts-autotag",
+    enabled=true,
+    event="VeryLazy",
+    config = function()
+      require'nvim-treesitter.configs'.setup {
+        autotag = {
+        enable = true,
+      }
+    }
+    end
+
+  }
+
 }

@@ -16,7 +16,7 @@ return {
     enabled = false,
     config = function()
       require('matchparen').setup({
-        on_startup = false,         -- Should it be enabled by default
+        on_startup = true,         -- Should it be enabled by default
         hl_group = 'MatchParen',   -- highlight group of the matched brackets
         augroup_name = 'matchparen', -- almost no reason to touch this unless there is already augroup with such name
         debounce_time = 100,       -- debounce time in milliseconds for rehighlighting of brackets.
@@ -28,11 +28,12 @@ return {
     event = "VeryLazy",
     enabled = true,
     config = function()
-      -- vim.g.matchup_matchparen_IdleLimitTime=1000000
+      vim.g.matchup_matchparen_IdleLimitTime=1000000
       -- vim.g.matchup_matchparen_offscreen = { method = "popup" }
       vim.g.matchup_matchparen_matchup_surround_enabled = 1
+      vim.g.matchup_transmute_enabled = 1
     end
-  },
+    },
   --
   -- {
   --   "karb94/neoscroll.nvim",
