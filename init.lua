@@ -68,6 +68,24 @@ return {
     cssmodules_ls = {
       filetypes = {"angular","html"}
        },
+      ltex={
+        filetypes={
+          "bib",
+          -- "gitcommit",
+          -- "markdown",
+          -- "org",
+          "plaintex",
+          -- "rst",
+          -- "rnoweb",
+          "tex",
+          -- "pandoc",
+          -- "quarto",
+          -- "rmd",
+          -- "context",
+          -- "html",
+          -- "xhtml",
+        },
+      },
       tailwindcss= {
         -- filetypes = {"angular"}
         filetypes = {"angular"}
@@ -207,17 +225,25 @@ vim.api.nvim_create_autocmd("BufEnter", {
     -- autocmd BufRead,BufEnter *.component.html set filetype=angular
     -- C:\Users\michaelcarno\AppData\Local\nvim-data\lazy\nvim-treesitter-angular\ftdetect
     --
-    -- parser_config.angular2 = {
-    --   install_info = {
-    --     url = "D:\\angular17tree\\tree-sitter-angular", -- local path or git repo
-    --     files = { "src/parser.c", "src/scanner.c" },                             -- note that some parsers also require src/scanner.c or src/scanner.cc
-    --     -- optional entries:
-    --     branch = "feature/control-flows",                                        -- default branch in case of git repo if different from master
-    --     generate_requires_npm = false,                          -- if stand-alone parser without npm dependencies
-    --     requires_generate_from_grammar = true,                 -- if folder contains pre-generated src/parser.c
-    --   }
-    --
-    -- }
+
+    vim.cmd([[
+          augroup matchup_matchparen_enable_ft
+            autocmd!
+                autocmd FileType angular let b:match_words = matchup#util#standard_html()
+
+          augroup END
+    ]])
+    parser_config.angular_beta = {
+      install_info = {
+        url = "D:\\angular17tree\\tree-sitter-angular", -- local path or git repo
+        files = { "src/parser.c", "src/scanner.c" },                             -- note that some parsers also require src/scanner.c or src/scanner.cc
+        -- optional entries:
+        branch = "main",                                        -- default branch in case of git repo if different from master
+        generate_requires_npm = false,                          -- if stand-alone parser without npm dependencies
+        requires_generate_from_grammar = true,                 -- if folder contains pre-generated src/parser.c
+      }
+
+    }
     --
     -- чтобы поменять стандартный репозиторий на свой но надо править lockfile 
     --
