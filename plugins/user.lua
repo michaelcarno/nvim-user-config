@@ -10,19 +10,19 @@ return {
     lazy = false,
     priority = 1000,
   },
-  {
-    "monkoose/matchparen.nvim",
-    event = "VeryLazy",
-    enabled = false,
-    config = function()
-      require('matchparen').setup({
-        on_startup = true,         -- Should it be enabled by default
-        hl_group = 'MatchParen',   -- highlight group of the matched brackets
-        augroup_name = 'matchparen', -- almost no reason to touch this unless there is already augroup with such name
-        debounce_time = 100,       -- debounce time in milliseconds for rehighlighting of brackets.
-      })
-    end
-  },
+  -- {
+  --   "monkoose/matchparen.nvim",
+  --   event = "VeryLazy",
+  --   enabled = false,
+  --   config = function()
+  --     require('matchparen').setup({
+  --       on_startup = true,         -- Should it be enabled by default
+  --       hl_group = 'MatchParen',   -- highlight group of the matched brackets
+  --       augroup_name = 'matchparen', -- almost no reason to touch this unless there is already augroup with such name
+  --       debounce_time = 100,       -- debounce time in milliseconds for rehighlighting of brackets.
+  --     })
+  --   end
+  -- },
   {
     "andymass/vim-matchup",
     event = "VeryLazy",
@@ -34,13 +34,14 @@ return {
       vim.g.matchup_transmute_enabled = 1
       -- vim.g.matchup_matchparen_deferred_fade_time = 450
       vim.g.matchup_matchparen_deferred = 1;
-      -- vim.g.matchup_hotfix['angular'] = 'html'
 
        vim.g.matchup_matchparen_offscreen = {
-         method = "popup",
-         fullwidth = 1,
-         highlight = "Normal",
-         syntax_hl = 1,
+         method = "status",
+         scrolloff = 1,
+         -- border = 1, 
+         -- fullwidth = 1,
+         -- highlight = "Normal",
+         -- syntax_hl = 1,
        }
     end
 },
