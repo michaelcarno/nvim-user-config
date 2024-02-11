@@ -1,0 +1,18 @@
+{
+  "nvim lazy module": {
+    "prefix": "nvim-lazy-module",
+    "description": "Nvim lazy initial",
+    "body": [
+      "return {",
+      "\"$1\",",
+      "event = \"VeryLazy\",",
+      "config = function()",
+      "$2",
+      "end,",
+      "keys = {",
+      " -- { \"\", function() end, desc =\"\" },",
+      "}",
+      "}"
+    ]
+  }
+}

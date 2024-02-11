@@ -1,7 +1,0 @@
-return {
-  "",
-  event = "VeryLazy",
-  config = function()
-
-  end
-}

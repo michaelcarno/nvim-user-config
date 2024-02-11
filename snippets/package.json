@@ -60,6 +60,12 @@
           "python"
         ],
         "path": "./python/pyqt.json"
+      },
+      {
+        "language": [
+          "lua"
+        ],
+        "path": "./lua/lua.json"
       }
     ]
   }
