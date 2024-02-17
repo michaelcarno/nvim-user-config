@@ -43,7 +43,7 @@ return {
     ["g<C-d>"]      = { "<C-w><C-]>", desc = "Go to definition in new window" },
     ["<C-w>d"]      = { "<C-w><C-]>", desc = "Go to definition in new window" },
     ["<C-w><C-d>"]  = { "<C-w><C-]>", desc = "Go to definition in new window" },
-    ["<leader>R"]   = { "<Plug>RestNvim", desc = "Run RestRequest" },
+    -- ["<leader>R"]   = { "<Plug>RestNvim", desc = "Run RestRequest" },
     -- ["<leader>gm"] = { "<cmd>Himalaya bondarenkoma<cr>", desc = "Check email bondarenkoma" },
     -- ["<C-k>"]      = { function()
     --   require('lsp_signature').toggle_float_win()
